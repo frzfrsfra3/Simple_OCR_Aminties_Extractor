@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amenity Extractor</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+    form { margin: 20px 0; }
+    ul { list-style-type: none; padding: 0; }
+    li { padding: 5px; background: #f0f0f0; margin: 3px 0; }
+  </style>
+</head>
+<body>
+  <h1>Amenity Extractor</h1>
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required>
+    <button type="submit">Extract Amenities</button>
+  </form>
+
+  <% if (amenities) { %>
+    <h2>Extracted Amenities:</h2>
+    <ul>
+      <% amenities.forEach(amenity => { %>
+        <li><%= amenity %></li>
+      <% }); %>
+    </ul>
+  <% } %>
+</body>
+</html>
